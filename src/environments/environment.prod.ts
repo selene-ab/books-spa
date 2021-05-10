@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: process.env.API,
+  api: 'https://books-api-sele.herokuapp.com/',
 };

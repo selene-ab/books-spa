@@ -1,10 +1,56 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BooksService } from './services/books.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteBookComponent } from './dialogs/delete-book/delete-book.component';
+import { CreateBookComponent } from './dialogs/create-book/create-book.component';
+import { UpdateBookComponent } from './dialogs/update-book/update-book.component';
+import { Book } from './interfaces/book';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'books-spa';
+  public booksList = [];
+
+  constructor(private booksService: BooksService, public dialog: MatDialog) {}
+
+  ngOnInit() {
+    this.getBooks();
+  }
+
+  getBooks() {
+    this.booksService.getBooks().subscribe((data: any) => {
+      this.booksList = data;
+    });
+  }
+
+  openCreateDialog() {
+    const dialogRef = this.dialog.open(CreateBookComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getBooks();
+    });
+  }
+
+  openUpdateDialog(book: Book) {
+    const dialogRef = this.dialog.open(UpdateBookComponent, {
+      data: book,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getBooks();
+    });
+  }
+
+  openDeleteDialog(id: number) {
+    const dialogRef = this.dialog.open(DeleteBookComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.booksService.deleteBook(id).subscribe((result) => {
+          this.getBooks();
+        });
+      }
+    });
+  }
 }

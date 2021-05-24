@@ -9,9 +9,15 @@ import { DeleteBookComponent } from './dialogs/delete-book/delete-book.component
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateBookComponent } from './dialogs/update-book/update-book.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [AppComponent, CreateBookComponent, DeleteBookComponent, UpdateBookComponent],
+  declarations: [
+    AppComponent,
+    CreateBookComponent,
+    DeleteBookComponent,
+    UpdateBookComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +26,7 @@ import { UpdateBookComponent } from './dialogs/update-book/update-book.component
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

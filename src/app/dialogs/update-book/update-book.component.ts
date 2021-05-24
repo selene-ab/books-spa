@@ -4,6 +4,7 @@ import { Book } from 'src/app/interfaces/book';
 import { BooksService } from 'src/app/services/books.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-book',
@@ -15,7 +16,8 @@ export class UpdateBookComponent implements OnInit {
 
   constructor(
     private booksService: BooksService,
-    @Inject(MAT_DIALOG_DATA) public data: Book
+    @Inject(MAT_DIALOG_DATA) public data: Book,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -60,8 +62,18 @@ export class UpdateBookComponent implements OnInit {
       Image: this.updateBookForm.get('image').value,
       Sinopsis: this.updateBookForm.get('sinopsis').value,
     };
-    this.booksService.updateBook(json).subscribe((result) => {
+    this.booksService.updateBook(json).subscribe((result: any) => {
       console.log(result);
+      if (result.ok) {
+        this.showSuccess();
+      }
+    });
+  }
+
+  showSuccess() {
+    this.toastr.success('Libro actualizado correctamente', '¡Exito!', {
+      timeOut: 4000,
+      closeButton: true,
     });
   }
 }

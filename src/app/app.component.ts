@@ -35,7 +35,9 @@ export class AppComponent implements OnInit {
   openCreateDialog() {
     const dialogRef = this.dialog.open(CreateBookComponent);
     dialogRef.afterClosed().subscribe((result) => {
-      this.getBooks();
+      setTimeout(() => {
+        this.getBooks();
+      }, 2000);
     });
   }
 
@@ -44,7 +46,9 @@ export class AppComponent implements OnInit {
       data: book,
     });
     dialogRef.afterClosed().subscribe((result) => {
-      this.getBooks();
+      setTimeout(() => {
+        this.getBooks();
+      }, 1000);
     });
   }
 

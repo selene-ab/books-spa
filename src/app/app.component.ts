@@ -5,6 +5,7 @@ import { DeleteBookComponent } from './dialogs/delete-book/delete-book.component
 import { CreateBookComponent } from './dialogs/create-book/create-book.component';
 import { UpdateBookComponent } from './dialogs/update-book/update-book.component';
 import { Book } from './interfaces/book';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,11 @@ export class AppComponent implements OnInit {
   title = 'books-spa';
   public booksList = [];
 
-  constructor(private booksService: BooksService, public dialog: MatDialog) {}
+  constructor(
+    private booksService: BooksService,
+    public dialog: MatDialog,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.getBooks();
@@ -47,10 +52,20 @@ export class AppComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteBookComponent);
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.booksService.deleteBook(id).subscribe((result) => {
+        this.booksService.deleteBook(id).subscribe((result: any) => {
           this.getBooks();
+          if (result.ok) {
+            this.showSuccess();
+          }
         });
       }
+    });
+  }
+
+  showSuccess() {
+    this.toastr.success('Libro borrado correctamente', '¡Exito!', {
+      timeOut: 4000,
+      closeButton: true,
     });
   }
 }

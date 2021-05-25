@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateBookComponent } from './dialogs/update-book/update-book.component';
 import { ToastrModule } from 'ngx-toastr';
+import { SortablejsModule } from 'ngx-sortablejs';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
+    SortablejsModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent],

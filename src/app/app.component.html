@@ -4,6 +4,8 @@
   </button>
   <div
     class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-8 gap-4 mt-6"
+    [sortablejs]="booksList"
+    [sortablejsOptions]="options"
   >
     <div *ngFor="let book of booksList">
       <!--Item  -->
@@ -22,7 +24,16 @@
             <button
               mat-flat-button
               color="accent"
-              class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase"
+              class="
+                p-2
+                leading-none
+                rounded
+                font-medium
+                mt-3
+                bg-gray-400
+                text-xs
+                uppercase
+              "
               (click)="openDeleteDialog(book.ID)"
             >
               Borrar
@@ -30,7 +41,16 @@
             <button
               mat-flat-button
               color="primary"
-              class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase"
+              class="
+                p-2
+                leading-none
+                rounded
+                font-medium
+                mt-3
+                bg-gray-400
+                text-xs
+                uppercase
+              "
               (click)="openUpdateDialog(book)"
             >
               Editar

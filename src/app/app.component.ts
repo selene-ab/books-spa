@@ -6,6 +6,7 @@ import { CreateBookComponent } from './dialogs/create-book/create-book.component
 import { UpdateBookComponent } from './dialogs/update-book/update-book.component';
 import { Book } from './interfaces/book';
 import { ToastrService } from 'ngx-toastr';
+import { SortableOptions } from 'sortablejs';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AppComponent implements OnInit {
   title = 'books-spa';
   public booksList = [];
+  public options: SortableOptions;
 
   constructor(
     private booksService: BooksService,
@@ -24,6 +26,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getBooks();
+    this.options = {
+      onUpdate: (event: any) => {
+        console.log(event);
+      },
+    };
   }
 
   getBooks() {

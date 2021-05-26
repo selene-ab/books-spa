@@ -32,4 +32,10 @@ export class BooksService {
   deleteBook(id: number) {
     return this.http.post(environment.api + 'delete', { ID: id });
   }
+
+  // Enviar nuevo orden de los libros
+
+  orderBooks(booksOrder: Array<number>) {
+    return this.http.post(environment.api + 'sort', { Order: booksOrder });
+  }
 }

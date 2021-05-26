@@ -28,7 +28,13 @@ export class AppComponent implements OnInit {
     this.getBooks();
     this.options = {
       onUpdate: (event: any) => {
-        console.log(event);
+        let booksOrder = [];
+        this.booksList.forEach((book) => {
+          booksOrder.push(book.ID);
+        });
+        this.booksService.orderBooks(booksOrder).subscribe((result: any) => {
+          console.log(result);
+        });
       },
     };
   }

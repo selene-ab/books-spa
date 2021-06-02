@@ -33,7 +33,7 @@ npm start
 
 - Además tienes la posibilidad de actualizar la información de tu libro siempre que lo desees:
 
-![Actualizar libros.](https://imgur.com/IrBLuMu.png "Actualizar información de un libro.")
+![Actualizar libros.](https://imgur.com/CRiWgas.png "Actualizar información de un libro.")
 
 - Puedes borrar tus libros cuando te canses de ellos:
 

@@ -41,4 +41,4 @@ npm start
 
 - Si quieres cambiar el orden es tan sencillo como arrastrar un libro al lugar que desees y estos intercambiarán su posición:
 
-![Reordenar libros.](https://i.imgur.com/z23NsmO.gif "Arrastra para reordenar los libros.")
+![Reordenar libros.](https://i.imgur.com/ghRsVhi.gif "Arrastra para reordenar los libros.")

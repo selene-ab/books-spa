@@ -1,27 +1,46 @@
-# BooksSpa
+# Books-SPA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+Single Page Applicacion creada usando Angular 11.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+SPA creada con el objetivo de crear y gestionar tu biblioteca de libros de una forma sencilla.
 
-## Code scaffolding
+Con ella podrás crear un listado con tus libros favoritos, reordenarlos siempre que quieras, editar su información y borrar los libros cuando ya no te sean útiles.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Demo
 
-## Build
+Hay demo online en heroku: https://books-spa.herokuapp.com/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Ejecutar localmente
 
-## Running unit tests
+```
+git clone https://github.com/selene-ab/books-spa.git
+cd books-spa
+npm install
+npm start
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Uso
 
-## Running end-to-end tests
+- Página principal donde aparecerá el listado de todos tus libros:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+![Página principal.](https://imgur.com/gXi9WQI.png "Página principal.")
 
-## Further help
+- Puedes crear libros de forma sencilla rellenando los campos del formulario:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Crear libros.](https://imgur.com/IrBLuMu.png "Crear un nuevo libro.")
+
+- Además tienes la posibilidad de actualizar la información de tu libro siempre que lo desees:
+
+![Actualizar libros.](https://imgur.com/IrBLuMu.png "Actualizar información de un libro.")
+
+- Puedes borrar tus libros cuando te canses de ellos:
+
+![Borrar libros.](https://imgur.com/dGWISHP.png "Borrar un libro.")
+
+- Si quieres cambiar el orden es tan sencillo como arrastrar un libro al lugar que desees y estos intercambiarán su posición:
+
+![Reordenar libros.](https://imgur.com/ILPvLMZ.png "Arrastra para reordenar los libros.")
+
+![Libros reordenados.](https://imgur.com/BbrR1WV.png "Los libros se reordenan.")
